@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import path from "path";
 import authRoute from "./routes/auth.routes.js";
 import {connectDb} from "../lib/db.js";
-
+import cookieParser from 'cookie-parser';   
 dotenv.config();
 const port=process.env.PORT ||3000;
 
@@ -11,6 +11,7 @@ const port=process.env.PORT ||3000;
 
 const app=express();
 app.use(express.json());
+app.use(cookieParser());
 const __dirname=path.resolve();
 
 app.use("/api/auth",authRoute);
