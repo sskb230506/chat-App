@@ -1,9 +1,9 @@
 import User from "../models/User.js";
 import validator from "validator";
 import bcrypt from "bcryptjs";
-import { generateToken } from "../../lib/utlis.js";
+import { generateToken } from "../lib/utlis.js";
 import { sendWelcomeEmail } from "../emails/emailHandler.js";
-import cloudinary from "../../lib/cloudinary.js";
+import cloudinary from "../lib/cloudinary.js";
 export const signup = async (req,res) => {
     try{
 
