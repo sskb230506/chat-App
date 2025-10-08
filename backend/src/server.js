@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import path from "path";
 import authRoute from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
+import cors from "cors";
 import {connectDb} from "./lib/db.js";
 import cookieParser from 'cookie-parser';   
 dotenv.config();
@@ -12,6 +13,7 @@ const port=process.env.PORT ||3000;
 
 const app=express();
 app.use(express.json());
+app.use(cors({origin:process.env.CLIENT_URL,credentials:true}));
 app.use(cookieParser());
 const __dirname=path.resolve();
 
